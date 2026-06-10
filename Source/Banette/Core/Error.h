@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Banette/Definition.h"
 #include "Experimental/UnifiedError/UnifiedError.h"
+#include "Templates/ValueOrError.h"
 
 
 namespace Banette::Core
