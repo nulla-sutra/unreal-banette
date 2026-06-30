@@ -3,19 +3,17 @@
 #include "CoreMinimal.h"
 #include "Banette.h"
 #include "UE5Coro.h"
-#include "Experimental/UnifiedError/UnifiedError.h"
 
 // UnifiedError declaration for rate limit timeout
-UE_DECLARE_ERROR_MODULE(BANETTEKIT_API, Banette::Kit);
+BANETTE_DECLARE_ERROR_MODULE(BANETTEKIT_API, Banette::Kit);
 
-UE_DECLARE_ERROR(BANETTEKIT_API, RateLimitTimeout, 1, Banette::Kit,
-                 NSLOCTEXT("BanetteKit", "RateLimitTimeout", "Rate limit wait timeout exceeded."));
+BANETTE_DECLARE_ERROR(BANETTEKIT_API, Banette::Kit, 1, RateLimitTimeout,
+                      "Rate limit wait timeout exceeded.");
 
 
 namespace Banette::Kit
 {
 	using namespace Banette::Core;
-	using namespace UE::UnifiedError::Banette::Kit;
 
 	struct FRateLimitConfig
 	{
@@ -83,7 +81,7 @@ namespace Banette::Kit
 					if (!bSuccess)
 					{
 						// Timeout occurred
-						co_return MakeError(RateLimitTimeout::MakeError());
+						co_return MakeError(BANETTE_MAKE_ERROR(Banette::Kit, RateLimitTimeout));
 					}
 				}
 				else

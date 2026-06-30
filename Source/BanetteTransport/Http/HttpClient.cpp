@@ -6,23 +6,20 @@
 #include "Interfaces/IHttpRequest.h"
 #include "Interfaces/IHttpResponse.h"
 #include "UE5Coro.h"
-#include "Experimental/UnifiedError/UnifiedError.h"
 
 // Define UnifiedError module and error codes for HTTP transport
-UE_DEFINE_ERROR_MODULE(Banette::Transport::Http);
+BANETTE_DEFINE_ERROR_MODULE(Banette::Transport::Http);
 
-UE_DEFINE_ERROR(InvalidUrl, Banette::Transport::Http);
+BANETTE_DEFINE_ERROR(Banette::Transport::Http, InvalidUrl);
 
-UE_DEFINE_ERROR(RequestCreationFailed, Banette::Transport::Http);
+BANETTE_DEFINE_ERROR(Banette::Transport::Http, RequestCreationFailed);
 
-UE_DEFINE_ERROR(ConnectionFailed, Banette::Transport::Http);
+BANETTE_DEFINE_ERROR(Banette::Transport::Http, ConnectionFailed);
 
-UE_DEFINE_ERROR(NoResponse, Banette::Transport::Http);
+BANETTE_DEFINE_ERROR(Banette::Transport::Http, NoResponse);
 
 namespace Banette::Transport::Http
 {
-	using namespace UE::UnifiedError::Banette::Transport::Http;
-
 	static FString ToVerb(const EHttpMethod Method)
 	{
 		switch (Method)
@@ -56,12 +53,12 @@ namespace Banette::Transport::Http
 	{
 		// Validate URL
 		if (Request.Url.IsEmpty())
-			co_return MakeError(InvalidUrl::MakeError());
+			co_return MakeError(BANETTE_MAKE_ERROR(Banette::Transport::Http, InvalidUrl));
 
 		// Create request
 		auto* Module = &FHttpModule::Get();
 		if (!Module)
-			co_return MakeError(RequestCreationFailed::MakeError());
+			co_return MakeError(BANETTE_MAKE_ERROR(Banette::Transport::Http, RequestCreationFailed));
 
 		const auto HttpReq = Module->CreateRequest();
 
@@ -96,7 +93,7 @@ namespace Banette::Transport::Http
 		auto [Response, bConnected] = co_await UE5Coro::Http::ProcessAsync(HttpReq);
 
 		if (!bConnected || !Response.IsValid())
-			co_return MakeError(ConnectionFailed::MakeError());
+			co_return MakeError(BANETTE_MAKE_ERROR(Banette::Transport::Http, ConnectionFailed));
 
 		FHttpResponse Out;
 		Out.Url = HttpReq->GetURL();

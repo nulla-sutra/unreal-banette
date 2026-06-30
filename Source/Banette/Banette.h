@@ -8,6 +8,7 @@
 
 #include "Banette/Definition.h"
 
+#include "Banette/Core/UnifiedErrorCompat.h"
 #include "Banette/Core/Error.h"
 #include "Banette/Core/Service.h"
 #include "Banette/Core/Layer.h"

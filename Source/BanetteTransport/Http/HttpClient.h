@@ -2,25 +2,24 @@
 
 #pragma once
 #include "Banette.h"
-#include "Experimental/UnifiedError/UnifiedError.h"
 #include "Containers/Map.h"
 #include "Containers/Array.h"
 
 // UnifiedError declarations for HTTP transport failures
 // Expose stable error codes so callers can branch on explicit conditions.
-UE_DECLARE_ERROR_MODULE(BANETTETRANSPORT_API, Banette::Transport::Http);
+BANETTE_DECLARE_ERROR_MODULE(BANETTETRANSPORT_API, Banette::Transport::Http);
 
-UE_DECLARE_ERROR(BANETTETRANSPORT_API, InvalidUrl, 1, Banette::Transport::Http,
-                 NSLOCTEXT("BanetteHttp", "InvalidUrl", "Invalid or empty URL."));
+BANETTE_DECLARE_ERROR(BANETTETRANSPORT_API, Banette::Transport::Http, 1, InvalidUrl,
+                      "Invalid or empty URL.");
 
-UE_DECLARE_ERROR(BANETTETRANSPORT_API, RequestCreationFailed, 2, Banette::Transport::Http,
-                 NSLOCTEXT("BanetteHttp", "RequestCreationFailed", "Failed to create HTTP request."));
+BANETTE_DECLARE_ERROR(BANETTETRANSPORT_API, Banette::Transport::Http, 2, RequestCreationFailed,
+                      "Failed to create HTTP request.");
 
-UE_DECLARE_ERROR(BANETTETRANSPORT_API, ConnectionFailed, 3, Banette::Transport::Http,
-                 NSLOCTEXT("BanetteHttp", "ConnectionFailed", "HTTP connection failed."));
+BANETTE_DECLARE_ERROR(BANETTETRANSPORT_API, Banette::Transport::Http, 3, ConnectionFailed,
+                      "HTTP connection failed.");
 
-UE_DECLARE_ERROR(BANETTETRANSPORT_API, NoResponse, 4, Banette::Transport::Http,
-                 NSLOCTEXT("BanetteHttp", "NoResponse", "No HTTP response received."));
+BANETTE_DECLARE_ERROR(BANETTETRANSPORT_API, Banette::Transport::Http, 4, NoResponse,
+                      "No HTTP response received.");
 
 
 namespace Banette::Transport::Http

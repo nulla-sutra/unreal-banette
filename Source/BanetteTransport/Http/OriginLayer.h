@@ -160,7 +160,7 @@ namespace Banette::Transport::Http
 				if (ResolvedOrigin.IsEmpty())
 				{
 					// Cannot construct a valid URL without an origin
-					co_return MakeError(UE::UnifiedError::Banette::Transport::Http::InvalidUrl::MakeError());
+					co_return MakeError(BANETTE_MAKE_ERROR(Banette::Transport::Http, InvalidUrl));
 				}
 
 				// Combine origin and relative URL
