@@ -10,7 +10,7 @@ cbindgen = { git = "https://github.com/tarnishablec/cbindgen.git", branch = "cop
 oas3 = { git = "https://github.com/tarnishablec/oas3-rs", branch = "copilot/fix-issue-278", features = ["yaml-spec"] }
 serde_json = "1.0.145"
 serde_yaml_bw = "2.5.1"
-tera = "1.20.1"
+tera = "2.4.0"
 ureq = "3.1.4"
 anyhow = "1"
 clap = { version = "4.5.53", features = ["derive"] }
