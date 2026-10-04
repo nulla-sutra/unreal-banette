@@ -25,9 +25,16 @@ public class BanetteGenerator : ModuleRules
 		var CargoProfile = GetCargoProfile();
 		var LibFileName = GetLibFileName();
 
-		PublicAdditionalLibraries.Add(
-			Path.Combine(ModuleDirectory, @$"generator\target\{CargoTarget}\{CargoProfile}\{LibFileName}")
-		);
+		var LibPath = Path.Combine(ModuleDirectory, "generator", "target", CargoTarget, CargoProfile, LibFileName);
+		if (Target.Platform == UnrealTargetPlatform.Win64)
+		{
+			// The plugin's PreBuildSteps generate this library after UBT evaluates module rules.
+			PublicPreBuildLibraries.Add(LibPath);
+		}
+		else
+		{
+			PublicAdditionalLibraries.Add(LibPath);
+		}
 
 
 		PublicDependencyModuleNames.AddRange(
