@@ -5,7 +5,10 @@ public class BanetteGenerator : ModuleRules
 {
 	public BanetteGenerator(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		PCHUsage = PCHUsageMode.Default;
+
+		// Resolve module-qualified headers through Unreal's parent include paths.
+		bLegacyParentIncludePaths = true;
 
 
 		// if (Target.WindowsPlatform.Compiler.IsMSVC())

@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Banette.h"
+#include "Banette/Banette.h"
 #include "JsonObjectConverter.h"
 #include "BanetteTransport/Http/HttpClient.h"
 #include "UE5Coro.h"

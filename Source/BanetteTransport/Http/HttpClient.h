@@ -1,7 +1,7 @@
 // Copyright 2019-Present tarnishablec. All Rights Reserved.
 
 #pragma once
-#include "Banette.h"
+#include "Banette/Banette.h"
 #include "Containers/Map.h"
 #include "Containers/Array.h"
 

@@ -1,7 +1,7 @@
 // Copyright 2019-Present tarnishablec. All Rights Reserved.
 
 
-#include "BanetteGeneratorLibrary.h"
+#include "BanetteGenerator/Blueprint/BanetteGeneratorLibrary.h"
 #include "BanetteGenerator/generator/bindings.h"
 
 void UBanetteGeneratorLibrary::GenerateOpenApi(const FString OpenApiPath,

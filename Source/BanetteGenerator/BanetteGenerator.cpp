@@ -1,4 +1,4 @@
-﻿#include "BanetteGenerator.h"
+﻿#include "BanetteGenerator/BanetteGenerator.h"
 
 #define LOCTEXT_NAMESPACE "FBanetteGeneratorModule"
 

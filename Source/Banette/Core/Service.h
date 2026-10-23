@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Error.h"
+#include "Banette/Core/Error.h"
 #include "UE5Coro.h"
 
 namespace Banette::Core

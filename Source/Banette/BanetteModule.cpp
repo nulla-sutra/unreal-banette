@@ -1,4 +1,4 @@
-﻿#include "BanetteModule.h"
+﻿#include "Banette/BanetteModule.h"
 
 #define LOCTEXT_NAMESPACE "FBanetteModule"
 

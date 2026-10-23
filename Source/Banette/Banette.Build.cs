@@ -4,8 +4,10 @@ public class Banette : ModuleRules
 {
 	public Banette(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-		PublicIncludePaths.Add(ModuleDirectory);
+		PCHUsage = PCHUsageMode.Default;
+
+		// Resolve module-qualified headers through Unreal's parent include paths.
+		bLegacyParentIncludePaths = true;
 
 		PublicDependencyModuleNames.AddRange(
 			new[]

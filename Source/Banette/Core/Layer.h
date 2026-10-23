@@ -2,7 +2,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Service.h"
+#include "Banette/Core/Service.h"
 
 namespace Banette::Core
 {

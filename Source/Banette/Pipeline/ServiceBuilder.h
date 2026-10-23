@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Core/Service.h"
-#include "Core/Layer.h"
+#include "Banette/Core/Service.h"
+#include "Banette/Core/Layer.h"
 
 namespace Banette::Pipeline
 {
