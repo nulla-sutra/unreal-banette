@@ -4,7 +4,7 @@ public class BanetteTest : ModuleRules
 {
 	public BanetteTest(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = PCHUsageMode.Default;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		// Resolve module-qualified headers through Unreal's parent include paths.
 		bLegacyParentIncludePaths = true;
